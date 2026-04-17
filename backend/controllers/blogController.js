@@ -16,9 +16,9 @@ export const createBlog = async (req, res) => {
         }
 
         // Get image path from uploaded file or use provided URL
-        const imagePath = req.file
-            ? `/uploads/${req.file.filename}`
-            : req.body.image || '';
+       const imagePath = req.file
+    ? req.file.path
+    : req.body.image || '';
 
         const blog = await Blog.create({
             title,
@@ -78,7 +78,8 @@ export const updateBlog = async (req, res) => {
 
         // Handle image update
         if (req.file) {
-            blog.image = `/uploads/${req.file.filename}`;
+    blog.image = req.file.path;
+
         } else if (req.body.image !== undefined) {
             blog.image = req.body.image;
         }
