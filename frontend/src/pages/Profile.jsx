@@ -75,14 +75,12 @@ const Profile = () => {
     };
 
     const getAvatarUrl = () => {
-        if (avatarPreview) return avatarPreview;
-        if (existingAvatar) {
-            return existingAvatar.startsWith('http')
-                ? existingAvatar
-                : `http://localhost:5000${existingAvatar}`;
-        }
-        return null;
-    };
+    if (avatarPreview) return avatarPreview;
+    if (existingAvatar) {
+        return existingAvatar; // ✅ Cloudinary already returns full URL
+    }
+    return null;
+};
 
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
