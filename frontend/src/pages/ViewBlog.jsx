@@ -105,7 +105,7 @@ const ViewBlog = () => {
                     {/* Image */}
                     {blog.image && (
                         <img
-                            src=src={blog.image}
+                            src={blog.image}
                             alt={blog.title}
                             className="w-full h-96 object-cover"
                         />
